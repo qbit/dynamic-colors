@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-USAGE="Usage: dynamic-colors [help|cycle|init|list|switch <colorscheme>]"
+SCRIPT=$(basename $0)
+
+USAGE="Usage: $SCRIPT [help|cycle|init|list|switch <colorscheme>]"
 HELP="\
-dynamic-colors <command>
+$SCRIPT <command>
 
 Basic commands:
   h,help                  print this help message
@@ -13,6 +15,8 @@ Basic commands:
   i,init                  (re)load last color scheme
   l,list                  list available colorschemes
   s,switch <colorscheme>  change terminal colors to <colorscheme>
+
+  completion		  print OpenBSD ksh completions
 
 Creating colorschemes:
   a,audit <colorscheme>   check <colorscheme> for undefined colors
@@ -185,6 +189,11 @@ create () {
   edit "$1"
 }
 
+completion () {
+  echo "set -A complete_${SCRIPT} -- help cycle init list switch create edit audit completion"
+  echo "set -A complete_${SCRIPT}_2 -- $($SCRIPT list | tr '[:space:]' ' ')"
+}
+
 usage () {
   die "$USAGE"
 }
@@ -218,6 +227,8 @@ case "$#" in
     switch "$1" ;;
   c|cycle)
     cycle ;;
+  completion)
+    completion ;;
   *)
     usage ;;
   esac
