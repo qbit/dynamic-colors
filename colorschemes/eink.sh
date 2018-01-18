@@ -3,8 +3,8 @@
 background="white"
 foreground="black"
 cursor="green"
-mouse_background=""
-mouse_foreground=""
+mouse_background="#303030"
+mouse_foreground="$6a6a6a"
 highlight="#d6d6d6"
 border="black"
 color0="black" # black

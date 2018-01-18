@@ -25,9 +25,13 @@ nord15="#B48EAD"
 
 foreground="$nord4"
 background="$nord0"
+mouse_background="#07364"
+mouse_foreground="#93a1a1"
 highlight="$nord3"
 cursor="$nord4"
 fade="$nord3"
+border="#002b36"
+
 color0="$nord1"
 color1="$nord11"
 color2="$nord14"
